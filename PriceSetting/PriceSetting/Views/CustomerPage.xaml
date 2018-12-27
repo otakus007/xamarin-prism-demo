@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="PriceSetting.Views.CustomerPage"
+             Title="{Binding Title}">
+    
+    <StackLayout>
+        
+        <ActivityIndicator IsVisible="{Binding IsBusy}"
+                          IsRunning="{Binding IsBusy}">
+        </ActivityIndicator>
+        
+        <Button Text="Load Customers"
+                Command="{Binding LoadCustomerCommand}">
+        </Button>
+        
+        <ListView ItemsSource="{Binding Customers}"
+                  RowHeight="120"
+                  CachingStrategy="RecycleElement">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="20"
+                              VerticalOptions="CenterAndExpand">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*">
+                                </RowDefinition>
+                                <RowDefinition Height="*">
+                                </RowDefinition>
+                                <RowDefinition Height="*">
+                                </RowDefinition>
+                                <RowDefinition Height="*">
+                                </RowDefinition>
+                                <RowDefinition Height="*">
+                                </RowDefinition>
+                            </Grid.RowDefinitions>
+                            
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            
+                            <Label Grid.Row="0"
+                                   Text="{Binding CUSTOMERID}"
+                                   HorizontalOptions="StartAndExpand"
+                                   LineBreakMode="CharacterWrap">
+                            </Label>
+
+                            <Label Grid.Row="1"
+                                   Text="{Binding CUSTNAME}"
+                                   HorizontalOptions="StartAndExpand"
+                                   LineBreakMode="CharacterWrap">
+                            </Label>
+                            
+                            <Label Grid.Row="2"
+                                   Text="{Binding ADDRESS}"
+                                   HorizontalOptions="StartAndExpand"
+                                   LineBreakMode="CharacterWrap">
+                            </Label>
+
+                            <Label Grid.Row="3"
+                                   Text="{Binding TEL}"
+                                   HorizontalOptions="StartAndExpand"
+                                   LineBreakMode="CharacterWrap">
+                            </Label>
+                            
+                             <Label Grid.Row="4"
+                                   Text="{Binding IDCARD}"
+                                   HorizontalOptions="StartAndExpand"
+                                   LineBreakMode="CharacterWrap">
+                            </Label>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+    </StackLayout>
+    
+</ContentPage>

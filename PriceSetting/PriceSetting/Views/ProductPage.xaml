@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="PriceSetting.Views.ProductPage"
+             Title="{Binding Title}">
+    
+    <StackLayout>
+        
+        <ActivityIndicator IsVisible="{Binding IsBusy}"
+                          IsRunning="{Binding IsBusy}">
+        </ActivityIndicator>
+        
+        <Button Text="Load Products"
+                Command="{Binding LoadProductCommand}">
+        </Button>
+        
+        <ListView ItemsSource="{Binding Products}"
+                  RowHeight="120"
+                  CachingStrategy="RecycleElement">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="20"
+                              VerticalOptions="CenterAndExpand">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*">
+                                </RowDefinition>
+                                <RowDefinition Height="*">
+                                </RowDefinition>
+                                <RowDefinition Height="*">
+                                </RowDefinition>
+                                <RowDefinition Height="*">
+                                </RowDefinition>
+                            </Grid.RowDefinitions>
+                            
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            
+                            <Label Grid.Row="0"
+                                   Text="{Binding PRODUCTID}"
+                                   HorizontalOptions="StartAndExpand"
+                                   LineBreakMode="CharacterWrap">
+                            </Label>
+
+                            <Label Grid.Row="1"
+                                   Text="{Binding NAME_VN}"
+                                   HorizontalOptions="StartAndExpand"
+                                   LineBreakMode="CharacterWrap">
+                            </Label>
+                            
+                            <Label Grid.Row="2"
+                                   Text="{Binding DESCRIPTION}"
+                                   HorizontalOptions="StartAndExpand"
+                                   LineBreakMode="CharacterWrap">
+                            </Label>
+
+                            <Label Grid.Row="3"
+                                   Text="{Binding MEASURENAME}"
+                                   HorizontalOptions="StartAndExpand"
+                                   LineBreakMode="CharacterWrap">
+                            </Label>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+    </StackLayout>
+    
+</ContentPage>
